@@ -1,15 +1,14 @@
-<h1>Gudang Penyimpanan</h1>
 <div>
-    <table>
-        <tr>
-            <th>Nama Gudang</th>
-            <th>Kapasitas</th>
-            <th>Lokasi</th>
-        </tr>
-        <tr>
-            <td>Gudang 1</td>
-            <td>500</td>
-            <td>Utara</td>
-        </tr>
-    </table>
+    <div>
+        <div>
+            <h3>Daftar Gudang</h3>
+            <?php foreach( $data['gudang'] as $gudang ) : ?>
+                <ul>
+                    <li><?= $gudang['nama_gudang']; ?></li>
+                    <li><?= $gudang['kapasitas']; ?></li>
+                    <li><?= $gudang['lokasi']; ?></li>
+                </ul>
+            <?php endforeach; ?>
+        </div>
+    </div>
 </div>
