@@ -15,4 +15,11 @@ class Gudang extends Controller{
         $this->view('gudang/detail', $data);
         $this->view('templates/footer');
     }
+    public function tambah()
+    {
+        if( $this->model('Gudang_model')->tambahDataGudang($_POST) > 0) {
+            header('Location: ' . BASEURL . '/gudang');
+            exit;
+        }
+    }
 }
