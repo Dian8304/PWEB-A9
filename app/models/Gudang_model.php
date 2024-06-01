@@ -38,4 +38,37 @@ class Gudang_model
 
         return $this->db->rowCount();
     }
+
+    public function hapusDataGudang($id_gudang)
+    {
+        $query = "DELETE FROM gudang_penyimpanan WHERE id_gudang = :id_gudang";
+        $this->db->query($query);
+        $this->db->bind('id_gudang', $id_gudang);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+    
+    public function ubahDataGudang($data)
+    {
+        $query = "UPDATE gudang_penyimpanan SET
+                    nama_gudang = :nama_gudang,
+                    kapasitas = :kapasitas,
+                    lokasi = :lokasi,
+                    operator_id_opr = :operator_id_opr,
+                    admin_gudang_id_admin = :admin_gudang_id_admin
+                WHERE id_gudang = :id_gudang";
+        $this->db->query($query);
+        $this->db->bind('id_gudang', $data['id_gudang']);
+        $this->db->bind('nama_gudang', $data['nama_gudang']);
+        $this->db->bind('kapasitas', $data['kapasitas']);
+        $this->db->bind('lokasi', $data['lokasi']);
+        $this->db->bind('operator_id_opr', $data['operator_id_opr']);
+        $this->db->bind('admin_gudang_id_admin', $data['admin_gudang_id_admin']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
