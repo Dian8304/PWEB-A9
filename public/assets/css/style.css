@@ -1,0 +1,201 @@
+.bg-color{
+    background-color: #6D9C3F;
+    height: 100%;
+    width: 100%;
+}
+.landing-content {
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.landing-content h1 {
+    font-size: 65px; 
+}
+
+.landing-content p1 {
+    font-size: 20px; 
+}
+.body {
+    font-family: 'Poppins', sans-serif;
+}
+.landp-body {
+    margin: 0;
+    padding: 0;
+    /* font-family: Arial, sans-serif; */
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../image/bg-landp.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.regist{
+    font-family: 'Poppins', sans-serif;
+}
+.bg-reg{
+    background-color: #FFF;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 3%;
+    padding-bottom:3%;
+    width: 50%;
+}
+.reg-sbg{
+    font-family: 'Poppins', sans-serif;
+}
+.login{
+    font-family: 'Poppins', sans-serif;
+}
+.button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.h1L {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+.h2L {
+    font-size: 2em;
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+
+}
+.navbar-nav{
+    font-weight: 600;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.navbar-nav li a{
+    color: #FFF;
+}
+.navbar-custom {
+    background-color: #6D9C3F;
+}
+.navbar-brand{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.navbar-custom .nav-link:hover {
+    color: #C5DA4B !important;
+}
+  /* CSS untuk mengubah warna teks pada tombol */
+.navbar-custom .nav-link {
+    color: #FFF;
+    font-weight: 600
+}
+  /* CSS untuk menghilangkan latar belakang tombol */
+.navbar-custom .nav-link:focus, .navbar-custom .nav-link:hover {
+    background-color: transparent !important;
+}
+::placeholder {
+    font-size: 0.875em; /* Atur ukuran font yang diinginkan */
+}
+.container{
+    font-family: 'Poppins', sans-serif;
+}
+.kop th{
+    background-color: #6D9C3F;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+}
+.isitabel td{
+    text-align: center;
+}
+.custom-button {
+    background-color: #4a90e2;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #357ae8;
+}
+.judulform{
+    margin-top: 50px;
+    font-size: 20px; 
+    text-align: center;
+    margin-top: -0px;
+    font-weight: 600;
+}
+hr {
+    border: none;
+    background-color: #6D9C3F;
+    height: 1px; /* Ketebalan garis */
+    opacity: 0.5; /* Opasitas */
+    width: 47%;
+}
+.btnubah{
+    background-color: #8EBD40;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 65%;
+    display: block;
+    margin: 0 auto;
+}
+.btnubah:hover{
+    background-color: #7DA935;
+}
+.btntabelubah{
+    background-color: #C5DA4B;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+}
+.btntabelubah:hover{
+    background-color: #A6B83C;
+}
+.formubah{
+    width: 35%;
+    display: block;
+    margin: 0 auto;
+}
+tr.isitabel {
+    border: none;
+}
+.btntabelse7,.btntabelubhadm{
+    background-color: #C5DA4B;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5px; 
+}
+.btntabelse7:hover, .btntabelubhadm:hover{
+    background-color: #A6B83C;
+}
+.btntabelX, .btntabelhpsadm{
+    background-color: #E73F3F;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5px; 
+}
+.btntabelX:hover, .btntabelhpsadm:hover{
+    background-color: #BB3333;
+}
+.isitabel .aksi {
+    display: flex; /* Menggunakan flexbox */
+    justify-content: center; /* Mengatur penempatan horizontal menjadi tengah */
+    align-items: center; /* Mengatur penempatan vertikal menjadi tengah */
+}
