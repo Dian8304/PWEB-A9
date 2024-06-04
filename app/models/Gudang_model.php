@@ -2,7 +2,6 @@
 
 class Gudang_model
 {
-    // private $table = 'gudang_penyimpanan';
     private $db;
 
     public function __construct()
