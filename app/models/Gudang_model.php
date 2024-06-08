@@ -11,7 +11,13 @@ class Gudang_model
 
     public function getAllGudang()
     {
-        $this->db->query('SELECT * FROM gudang_penyimpanan');
+        $this->db->query('
+            SELECT gudang_penyimpanan.id_gudang, gudang_penyimpanan.nama_gudang, 
+                gudang_penyimpanan.kapasitas, gudang_penyimpanan.lokasi, 
+                admin_gudang.nama_admin as nama_admin
+            FROM gudang_penyimpanan
+            JOIN admin_gudang ON gudang_penyimpanan.admin_gudang_id_admin = admin_gudang.id_admin
+            ');
         return $this->db->resultSet();
     }
 
@@ -22,11 +28,16 @@ class Gudang_model
         return $this->db->single();
     }
 
+    public function getAllAdminGudang() {
+        $this->db->query('SELECT * FROM admin_gudang');
+        return $this->db->resultSet();
+    }
+
     public function tambahDataGudang($data)
     {
-        $query = "INSERT INTO gudang_penyimpanan VALUES (:id_gudang, :nama_gudang, :kapasitas, :lokasi, :operator_id_opr, :admin_gudang_id_admin)";
+        $query = "INSERT INTO gudang_penyimpanan (nama_gudang, kapasitas, lokasi, operator_id_opr, admin_gudang_id_admin)
+                VALUES (:nama_gudang, :kapasitas, :lokasi, :operator_id_opr, :admin_gudang_id_admin)";
         $this->db->query($query);
-        $this->db->bind('id_gudang', $data['id_gudang']);
         $this->db->bind('nama_gudang', $data['nama_gudang']);
         $this->db->bind('kapasitas', $data['kapasitas']);
         $this->db->bind('lokasi', $data['lokasi']);

@@ -15,11 +15,27 @@ class Panen extends Controller{
     public function tambah()
     {
         if( $this->model('Panen_model')->tambahDataPanen($_POST) > 0) {
-            Flasher::setFlash('berhasil','ditambahkan','success');
+            Flasher::setFlash('Berhasil','menambahkan data panen','success');
             header('Location: ' . BASEURL . '/panen');
             exit;
         } else {
-            Flasher::setFlash('gagal','ditambahkan','danger');
+            Flasher::setFlash('Gagal','menambahkan data panen','danger');
+            header('Location: ' . BASEURL . '/panen');
+            exit;
+        }
+    }
+    public function getubah()
+    {
+        echo json_encode($this->model('Panen_model')->getPanenById($_POST['id']));
+    }
+    public function ubah()
+    {
+        if( $this->model('Panen_model')->ubahDataPanen($_POST) > 0) {
+            Flasher::setFlash('Berhasil','mengubah data panen','success');
+            header('Location: ' . BASEURL . '/panen');
+            exit;
+        } else {
+            Flasher::setFlash('Gagal','mengubah data panen','danger');
             header('Location: ' . BASEURL . '/panen');
             exit;
         }

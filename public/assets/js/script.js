@@ -4,11 +4,9 @@ $(function(){
         
         $('#formModalLabel').html('Tambah Data Gudang');
         $('.modal-footer button[type=submit]').html('Tambah Data');
-        $('#id_gudang').val('');
         $('#nama_gudang').val('');
         $('#kapasitas').val('');
         $('#lokasi').val('');
-        $('#operator_id_opr').val('');
         $('#admin_gudang_id_admin').val('');
     });
     
@@ -38,20 +36,20 @@ $(function(){
 
     $('.tombolTambahDataPanen').on('click', function(){
         
-        $('#formModalLabel').html('Tambah Data Hasil Panen');
-        $('.modal-footer button[type=submit]').html('Simpan');
-        $('#id_panen').val('');
-        $('#tanggalPanen').val('');
+        $('#formPanenLabel').html('Tambah Data Hasil Panen');
+        $('.modal-footer button[type=submit]').html('Tambah');
+        $('#tanggal').val('');
         $('#jumlah').val('');
-        $('#jenisBuah').val('');
-        $('#wilayah').val('');
-        $('#namaGudang').val('');
+        $('#pekebun_id_pekebun').val('');
+        $('#jenis_buah_naga_id_jenis').val('');
+        $('#wilayah_kebun_id_wilayah').val('');
+        $('#gudang_penyimpanan_id_gudang').val('');
     });
 
     $('.tampilModalUbahPanen').on('click', function(){
         
-        $('#formModalLabel').html('Ubah Data Hasil Panen');
-        $('.modal-footer button[type=submit]').html('Ubah Data');
+        $('#formPanenLabel').html('Ubah Data Hasil Panen');
+        $('.modal-footer button[type=submit]').html('Ubah');
         $('.modal-body form').attr('action', 'http://localhost/PWEB-A9/public/panen/ubah')
 
         const id = $(this).data('id');
@@ -65,8 +63,10 @@ $(function(){
                 $('#id_panen').val(data.id_panen);
                 $('#tanggal').val(data.tanggal);
                 $('#jumlah').val(data.jumlah);
+                $('#pekebun_id_pekebun').val(data.pekebun_id_pekebun);
                 $('#jenis_buah_naga_id_jenis').val(data.jenis_buah_naga_id_jenis);
                 $('#wilayah_kebun_id_wilayah').val(data.wilayah_kebun_id_wilayah);
+                $('#verif_id_opsi').val(data.verif_id_opsi);
                 $('#gudang_penyimpanan_id_gudang').val(data.gudang_penyimpanan_id_gudang);
             }
         })

@@ -1,5 +1,17 @@
-<main class="d-flex justify-content-center align-items-center w-100 min-vh-100 bg-color text-dark font-sans">
-    <div class=" p-5 shadow bg-white rounded-lg">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In to PAGARI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/PWEB-A9/public/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class='login'>
+    <main class="d-flex justify-content-center align-items-center w-100 min-vh-100 bg-color text-dark font-sans">
+        <div class=" p-5 shadow bg-white rounded-lg">
         <?php Flasher::flash(); ?>
         <div class="text-center">
             <h2 class="font-weight-bold" style="font-size: 24px;">LOGIN</h2>
@@ -23,3 +35,5 @@
         </div>
     </div>
 </main>
+</body>
+</html>

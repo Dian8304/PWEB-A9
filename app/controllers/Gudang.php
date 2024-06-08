@@ -4,6 +4,7 @@ class Gudang extends Controller{
     public function index(){
         $data['judul'] = 'Gudang';
         $data['gudang'] = $this->model('Gudang_model')->getAllGudang();
+        $data['admin'] = $this->model('Gudang_model')->getAllAdminGudang();
         $this->view('templates/header', $data);
         $this->view('gudang/index', $data);
         $this->view('templates/footer');
@@ -18,11 +19,11 @@ class Gudang extends Controller{
     public function tambah()
     {
         if( $this->model('Gudang_model')->tambahDataGudang($_POST) > 0) {
-            Flasher::setFlash('berhasil','ditambahkan','success');
+            Flasher::setFlash('Data gudang berhasil','ditambahkan','success');
             header('Location: ' . BASEURL . '/gudang');
             exit;
         } else {
-            Flasher::setFlash('gagal','ditambahkan','danger');
+            Flasher::setFlash('Data gudang gagal','ditambahkan','danger');
             header('Location: ' . BASEURL . '/gudang');
             exit;
         }
@@ -30,11 +31,11 @@ class Gudang extends Controller{
     public function hapus($id_gudang)
     {
         if( $this->model('Gudang_model')->hapusDataGudang($id_gudang) > 0) {
-            Flasher::setFlash('berhasil','dihapus','success');
+            Flasher::setFlash('Data gudang berhasil','dihapus','success');
             header('Location: ' . BASEURL . '/gudang');
             exit;
         } else {
-            Flasher::setFlash('gagal','dihapus','danger');
+            Flasher::setFlash('Data gudang gagal','dihapus','danger');
             header('Location: ' . BASEURL . '/gudang');
             exit;
         }
@@ -46,11 +47,11 @@ class Gudang extends Controller{
     public function ubah()
     {
         if( $this->model('Gudang_model')->ubahDataGudang($_POST) > 0) {
-            Flasher::setFlash('berhasil','diubah','success');
+            Flasher::setFlash('Data gudang berhasil','diubah','success');
             header('Location: ' . BASEURL . '/gudang');
             exit;
         } else {
-            Flasher::setFlash('gagal','diubah','danger');
+            Flasher::setFlash('Data gudang gagal','diubah','danger');
             header('Location: ' . BASEURL . '/gudang');
             exit;
         }
