@@ -1,6 +1,13 @@
 <?php
 
 class Verifikasi extends Controller{
+    public function __construct() {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: ' . BASEURL . '/auth/login');
+            exit();
+        }
+        $this->checkRole([2]);
+    }
     public function index(){
         $data['judul'] = 'Verifikasi Hasil Panen';
         $data['panen'] = $this->model('Panen_model')->getPanenByVerif(3);

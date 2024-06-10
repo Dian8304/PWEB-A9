@@ -131,4 +131,19 @@ class Panen_model
 
         return $this->db->rowCount();
     }
+
+    public function getPanenCount() {
+        $this->db->query("SELECT COUNT(*) as total FROM hasil_panen");
+        return $this->db->single()['total'];
+    }
+
+    public function getRejectedPanenCount() {
+        $this->db->query("SELECT COUNT(*) as total FROM hasil_panen WHERE verif_id_opsi = 2");
+        return $this->db->single()['total'];
+    }
+
+    public function getAcceptedPanenCount() {
+        $this->db->query("SELECT COUNT(*) as total FROM hasil_panen WHERE verif_id_opsi = 1");
+        return $this->db->single()['total'];
+    }
 }

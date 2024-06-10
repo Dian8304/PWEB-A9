@@ -1,3 +1,4 @@
+<?php Flasher::flash(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,17 +11,21 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class='landp-body'>
+        <div>
+                <?php if(isset($_COOKIE['firstVisit'])): ?>
+                        <p class="alert alert-info">Selamat datang kembali! <br> Kunjungan terakhirmu ke sini adalah pada: <?= date("Y-m-d H:i:s", $_COOKIE['firstVisit']); ?></p>
+                <?php else: ?>
+                        <p class="alert alert-info">Selamat datang! Ini adalah kunjungan pertamamu.</p>
+                <?php endif; ?>
+        </div>
         <div class="button-container">
                 <a href="<?= BASEURL; ?>/auth/login" class="btn btn-danger rounded-xl">Login</a>
                 <a href="<?= BASEURL; ?>/auth/registSebagai" class="btn btn-danger">Register</a>
         </div>
-        <h1 class="h1L" style="font-size: 75px;"><b>PAGARI</b></h1>
-        <h2 class="h2L" style="font-size: 25px;"><b>Sistem Informasi Hasil Panen Buah Naga Kebun Gading Asri</b></h2>
-        <?php if(isset($_COOKIE['firstVisit'])): ?>
-                <p class="alert alert-info">Welcome back! Your last visit was on: <?= date("Y-m-d H:i:s", $_COOKIE['firstVisit']); ?></p>
-        <?php else: ?>
-                <p class="alert alert-info">Welcome! This is your first visit.</p>
-        <?php endif; ?>
+        <div>
+                <h1 class="h1L" style="font-size: 75px;"><b>PAGARI</b></h1>
+                <h2 class="h2L" style="font-size: 25px;"><b>Sistem Informasi Hasil Panen Buah Naga Kebun Gading Asri</b></h2>
+        </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

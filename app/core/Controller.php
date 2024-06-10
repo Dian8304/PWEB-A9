@@ -17,4 +17,12 @@ class Controller {
         require_once '../app/models/' . $model . '.php';
         return new $model;
     }
+
+    public function checkRole($roles) {
+        if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $roles)) {
+            Flasher::setFlash('Akses Ditolak!', 'Anda tidak memiliki izin mengakses halaman ini.', 'danger');
+            header('Location: ' . BASEURL . '/auth/logout');
+            exit();
+        }
+    }
 }

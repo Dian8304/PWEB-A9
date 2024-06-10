@@ -16,6 +16,9 @@ class Auth extends Controller{
     public function registAdmin(){
         $this->view('auth/registAdmin');
     }
+    public function registOperator(){
+        $this->view('auth/registOperator');
+    }
     public function adminRegisterProcess(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
@@ -64,6 +67,30 @@ class Auth extends Controller{
             $this->view('auth/registPekebun');
         }
     }
+    public function oprRegisterProcess(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = [
+                'username' => trim($_POST['username']),
+                'password' => trim($_POST['password']),
+                'role_id_role' => 1,
+                'nama_opr' => trim($_POST['nama']),
+                'no_telepon' => trim($_POST['no_telepon'])
+            ];
+
+            if ($this->model('Auth_model')->register($data)) {
+                $user = $this->model('Auth_model')->getUserByUsername($data['username']);
+                $data['users_id_user'] = $user['id_user'];
+                $this->model('Auth_model')->registOperator($data);
+                Flasher::setFlash('Akun anda berhasil', 'didaftarkan', 'success');
+                header('Location: ' . BASEURL . '/auth/login');
+            } else {
+                Flasher::setFlash('Akun anda gagal', 'didaftarkan', 'danger');
+                header('Location: ' . BASEURL . '/auth/registOperator');
+            }
+        } else {
+            $this->view('auth/registOperator');
+        }
+    }
     public function loginProcess() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = trim($_POST['username']);
@@ -87,10 +114,16 @@ class Auth extends Controller{
         }
     }
     public function logout() {
-        unset($_SESSION['user_id']);
-        unset($_SESSION['username']);
-        unset($_SESSION['role']);
+        $_SESSION = array();
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
         session_destroy();
         header('Location: ' . BASEURL . '/auth/login');
+        exit();
     }
 }

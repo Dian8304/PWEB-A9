@@ -39,4 +39,13 @@ class Auth_model {
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function registOperator($data) {
+        $this->db->query('INSERT INTO operator (nama_opr, no_telepon, users_id_user) VALUES (:nama_opr, :no_telepon, :users_id_user)');
+        $this->db->bind('nama_opr', $data['nama_opr']);
+        $this->db->bind('no_telepon', $data['no_telepon']);
+        $this->db->bind('users_id_user', $data['users_id_user']);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

@@ -1,3 +1,7 @@
+<?php
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,24 +15,27 @@
 </head>
 <body class="<?= isset($data['body']) ? $data['body'] : ''; ?>">
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-    <a class="navbar-brand" href="<?= BASEURL; ?>">PAGARI</a>
+    <a class="navbar-brand" href="<?= BASEURL; ?>/dashboard">PAGARI</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link text-white" href="<?= BASEURL; ?>/panen">Hasil Panen</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="<?= BASEURL; ?>/verifikasi/index">Verifikasi</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="<?= BASEURL; ?>/gudang">Gudang Penyimpanan</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="<?= BASEURL; ?>/panen">Penolakan</a>
-        </li>
+        <?php if ($role == 3):?>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="<?= BASEURL; ?>/panen">Hasil Panen</a>
+            </li>
+        <?php endif; ?>
+        <?php if ($role == 2):?>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="<?= BASEURL; ?>/verifikasi/index">Verifikasi</a>
+            </li>
+        <?php endif; ?>
+        <?php if ($role == 1):?>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="<?= BASEURL; ?>/gudang">Gudang Penyimpanan</a>
+            </li>
+        <?php endif; ?>
         <li class="nav-item">
             <a class="nav-link text-white" href="<?= BASEURL; ?>/auth">Logout</a>
         </li>

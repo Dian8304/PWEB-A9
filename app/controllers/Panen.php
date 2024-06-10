@@ -1,6 +1,9 @@
 <?php
 
 class Panen extends Controller{
+    public function __construct() {
+        $this->checkRole([3]);
+    }
     public function index(){
         $data['judul'] = 'Hasil Panen';
         $data['panen'] = $this->model('Panen_model')->getAllPanen();
