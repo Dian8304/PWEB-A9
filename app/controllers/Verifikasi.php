@@ -12,9 +12,9 @@ class Verifikasi extends Controller{
         $this->view('verifikasi/index', $data);
         $this->view('templates/footer');
     }
-    public function setujui()
+    public function setujui($id_panen)
     {
-        if( $this->model('Panen_model')->verifSetujuiHasilPanen($_POST) > 0) {
+        if( $this->model('Panen_model')->verifSetujuiHasilPanen($id_panen) > 0) {
             Flasher::setFlash('Data hasil panen','berhasil disetujui','success');
             header('Location: ' . BASEURL . '/verifikasi');
             exit;
@@ -24,9 +24,9 @@ class Verifikasi extends Controller{
             exit;
         }
     }
-    public function tolak()
+    public function tolak($id_panen)
     {
-        if( $this->model('Panen_model')->verifTolakHasilPanen($_POST) > 0) {
+        if( $this->model('Panen_model')->verifTolakHasilPanen($id_panen) > 0) {
             Flasher::setFlash('Data hasil panen','berhasil ditolak','success');
             header('Location: ' . BASEURL . '/verifikasi');
             exit;

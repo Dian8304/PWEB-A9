@@ -112,52 +112,20 @@ class Panen_model
         return $this->db->rowCount();
     }
 
-    public function verifSetujuiHasilPanen($data)
-    {
-        $query = "UPDATE hasil_panen SET
-                    tanggal = :tanggal,
-                    jumlah = :jumlah,
-                    pekebun_id_pekebun = :pekebun_id_pekebun,
-                    jenis_buah_naga_id_jenis = :jenis_buah_naga_id_jenis,
-                    wilayah_kebun_id_wilayah = :wilayah_kebun_id_wilayah,
-                    verif_id_opsi = 1,
-                    gudang_penyimpanan_id_gudang = :gudang_penyimpanan_id_gudang
-                WHERE id_panen = :id_panen";
+    public function verifSetujuiHasilPanen($id_panen) {
+        $query = "UPDATE hasil_panen SET verif_id_opsi = 1 WHERE id_panen = :id_panen";
         $this->db->query($query);
-        $this->db->bind('id_panen', $data['id_panen']);
-        $this->db->bind('tanggal', $data['tanggal']);
-        $this->db->bind('jumlah', $data['jumlah']);
-        $this->db->bind('pekebun_id_pekebun', $data['pekebun_id_pekebun']);
-        $this->db->bind('jenis_buah_naga_id_jenis', $data['jenis_buah_naga_id_jenis']);
-        $this->db->bind('wilayah_kebun_id_wilayah', $data['wilayah_kebun_id_wilayah']);
-        $this->db->bind('verif_id_opsi', $data['verif_id_opsi']);
-        $this->db->bind('gudang_penyimpanan_id_gudang', $data['gudang_penyimpanan_id_gudang']);
+        $this->db->bind('id_panen', $id_panen);
 
         $this->db->execute();
 
         return $this->db->rowCount();
     }
 
-    public function verifTolakHasilPanen($data)
-    {
-        $query = "UPDATE hasil_panen SET
-                    tanggal = :tanggal,
-                    jumlah = :jumlah,
-                    pekebun_id_pekebun = :pekebun_id_pekebun,
-                    jenis_buah_naga_id_jenis = :jenis_buah_naga_id_jenis,
-                    wilayah_kebun_id_wilayah = :wilayah_kebun_id_wilayah,
-                    verif_id_opsi = :verif_id_opsi,
-                    gudang_penyimpanan_id_gudang = :gudang_penyimpanan_id_gudang
-                WHERE id_panen = :id_panen";
+    public function verifTolakHasilPanen($id_panen) {
+        $query = "UPDATE hasil_panen SET verif_id_opsi = 2 WHERE id_panen = :id_panen";
         $this->db->query($query);
-        $this->db->bind('id_panen', $data['id_panen']);
-        $this->db->bind('tanggal', $data['tanggal']);
-        $this->db->bind('jumlah', $data['jumlah']);
-        $this->db->bind('pekebun_id_pekebun', $data['pekebun_id_pekebun']);
-        $this->db->bind('jenis_buah_naga_id_jenis', $data['jenis_buah_naga_id_jenis']);
-        $this->db->bind('wilayah_kebun_id_wilayah', $data['wilayah_kebun_id_wilayah']);
-        $this->db->bind('verif_id_opsi', $data['verif_id_opsi']);
-        $this->db->bind('gudang_penyimpanan_id_gudang', $data['gudang_penyimpanan_id_gudang']);
+        $this->db->bind('id_panen', $id_panen);
 
         $this->db->execute();
 
