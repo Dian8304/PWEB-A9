@@ -14,24 +14,34 @@
         var panenChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Created by Pekebun', 'Rejected by Admin Gudang', 'Accepted by Admin Gudang'],
-                datasets: [{
-                    label: 'Hasil Panen',
-                    data: [<?= $data['total_panen']; ?>, <?= $data['rejected_panen']; ?>, <?= $data['accepted_panen']; ?>],
-                    backgroundColor: [
-                        'rgb(122, 179, 255)', 
-                        'rgba(231, 63, 63, 1)',  
-                        'rgba(197, 218, 75, 1)'  
-                    ],
-                    borderColor: [
-                        'rgb(122, 179, 255)', 
-                        'rgba(231, 63, 63, 1)',  
-                        'rgba(197, 218, 75, 1)'  
-                    ],
-                    borderWidth: 1
-                }]
+                labels: ['Status'],
+                datasets: [
+                    {
+                        label: 'Dibuat oleh Pekebun',
+                        data: [<?= $data['total_panen']; ?>],
+                        backgroundColor: 'rgb(122, 179, 255)', 
+                        borderColor: 'rgb(122, 179, 255)', 
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Ditolak oleh Admin Gudang',
+                        data: [<?= $data['rejected_panen']; ?>],
+                        backgroundColor: 'rgba(231, 63, 63, 1)', 
+                        borderColor: 'rgba(231, 63, 63, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Diterima oleh Admin Gudang',
+                        data: [<?= $data['accepted_panen']; ?>],
+                        backgroundColor: 'rgba(197, 218, 75, 1)', 
+                        borderColor: 'rgba(197, 218, 75, 1)', 
+                        borderWidth: 1
+                    }
+                ]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true,

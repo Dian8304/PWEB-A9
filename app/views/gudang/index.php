@@ -31,13 +31,13 @@
                         <?= $gudang['nama_admin']; ?>
                     </td>
                     <td>
-                        <a href="<?= BASEURL; ?>/gudang/ubah/<?= $gudang['id_gudang']; ?>"
+                        <a href="<?= BASEURL; ?>/gudang/ubah/"
                             class="btn btn-danger btn-sm btntabelubhadm tampilModalUbah"
                             data-toggle="modal" data-target="#formModal"
                             data-id="<?= $gudang['id_gudang']; ?>">Ubah
                         </a>
-                        <a href="<?= BASEURL; ?>/gudang/hapus/<?= $gudang['id_gudang']; ?>"
-                            class="btn btn-danger btn-sm btntabelhpsadm tampilModalUbah"
+                        <a href="<?= BASEURL; ?>/gudang/hapus?id=<?= $gudang['id_gudang']; ?>"
+                            class="btn btn-danger btn-sm btntabelhpsadm "
                             onclick="return confirm('Yakin untuk menghapus data?')">Hapus
                         </a>                  
                     </td>
@@ -71,7 +71,7 @@
                         <label for="lokasi" class="mb-1">Lokasi</label>
                         <input type="text" class="form-control" id="lokasi" name="lokasi" required>
                     </div>
-                    <input type="hidden" id="operator_id_opr" name="operator_id_opr" value="1">
+                    <input type="hidden" id="operator_id_opr" name="operator_id_opr" value="2">
                     <div class="form-group">
                         <label for="admin_gudang_id_admin" class="mb-1">Admin Gudang</label>
                         <select class="form-control" id="admin_gudang_id_admin" name="admin_gudang_id_admin" required>

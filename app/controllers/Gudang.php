@@ -24,9 +24,9 @@ class Gudang extends Controller{
             exit;
         }
     }
-    public function hapus($id_gudang)
+    public function hapus()
     {
-        if( $this->model('Gudang_model')->hapusDataGudang($id_gudang) > 0) {
+        if( $this->model('Gudang_model')->hapusDataGudang($_GET['id']) > 0) {
             Flasher::setFlash('Data gudang berhasil','dihapus','success');
             header('Location: ' . BASEURL . '/gudang');
             exit;

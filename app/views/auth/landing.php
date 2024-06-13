@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Welcome to PAGARI</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/PWEB-A9/public/assets/css/style.css">
+        <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/style.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class='landp-body'>
