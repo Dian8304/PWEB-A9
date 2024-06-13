@@ -14,14 +14,31 @@ class Gudang extends Controller{
     }
     public function tambah()
     {
-        if( $this->model('Gudang_model')->tambahDataGudang($_POST) > 0) {
-            Flasher::setFlash('Data gudang berhasil','ditambahkan','success');
-            header('Location: ' . BASEURL . '/gudang');
-            exit;
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = [
+                'nama_gudang' => trim($_POST['nama_gudang']),
+                'kapasitas' => trim($_POST['kapasitas']),
+                'lokasi' => trim($_POST['lokasi']),
+                'admin_gudang_id_admin' => trim($_POST['admin_gudang_id_admin'])
+            ];
+
+            if(empty($data['nama_gudang']) || empty($data['kapasitas']) || empty($data['lokasi']) || empty($data['admin_gudang_id_admin'])){
+                Flasher::setFlash('Seluruh data harus', 'diisi', 'danger');
+                header('Location: ' . BASEURL . '/gudang');
+                exit(); 
+            }
+
+            if( $this->model('Gudang_model')->tambahDataGudang($_POST) > 0) {
+                Flasher::setFlash('Data gudang berhasil','ditambahkan','success');
+                header('Location: ' . BASEURL . '/gudang');
+                exit;
+            } else {
+                Flasher::setFlash('Data gudang gagal','ditambahkan','danger');
+                header('Location: ' . BASEURL . '/gudang');
+                exit;
+            }
         } else {
-            Flasher::setFlash('Data gudang gagal','ditambahkan','danger');
-            header('Location: ' . BASEURL . '/gudang');
-            exit;
+            $this->view('gudang');
         }
     }
     public function hapus()
@@ -42,14 +59,31 @@ class Gudang extends Controller{
     }
     public function ubah()
     {
-        if( $this->model('Gudang_model')->ubahDataGudang($_POST) > 0) {
-            Flasher::setFlash('Data gudang berhasil','diubah','success');
-            header('Location: ' . BASEURL . '/gudang');
-            exit;
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = [
+                'nama_gudang' => trim($_POST['nama_gudang']),
+                'kapasitas' => trim($_POST['kapasitas']),
+                'lokasi' => trim($_POST['lokasi']),
+                'admin_gudang_id_admin' => trim($_POST['admin_gudang_id_admin'])
+            ];
+
+            if(empty($data['nama_gudang']) || empty($data['kapasitas']) || empty($data['lokasi']) || empty($data['admin_gudang_id_admin'])){
+                Flasher::setFlash('Seluruh data harus', 'diisi', 'danger');
+                header('Location: ' . BASEURL . '/gudang');
+                exit(); 
+            }
+
+            if( $this->model('Gudang_model')->ubahDataGudang($_POST) > 0) {
+                Flasher::setFlash('Data gudang berhasil','diubah','success');
+                header('Location: ' . BASEURL . '/gudang');
+                exit;
+            } else {
+                Flasher::setFlash('Data gudang gagal','diubah','danger');
+                header('Location: ' . BASEURL . '/gudang');
+                exit;
+            }
         } else {
-            Flasher::setFlash('Data gudang gagal','diubah','danger');
-            header('Location: ' . BASEURL . '/gudang');
-            exit;
+            $this->view('gudang');
         }
     }
 }

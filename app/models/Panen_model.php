@@ -113,8 +113,9 @@ class Panen_model
     }
 
     public function verifSetujuiHasilPanen($id_panen) {
-        $query = "UPDATE hasil_panen SET verif_id_opsi = 1 WHERE id_panen = :id_panen";
+        $query = "UPDATE hasil_panen SET verif_id_opsi = :verif_id_opsi WHERE id_panen = :id_panen";
         $this->db->query($query);
+        $this->db->bind('verif_id_opsi', 1);
         $this->db->bind('id_panen', $id_panen);
 
         $this->db->execute();
@@ -123,8 +124,9 @@ class Panen_model
     }
 
     public function verifTolakHasilPanen($id_panen) {
-        $query = "UPDATE hasil_panen SET verif_id_opsi = 2 WHERE id_panen = :id_panen";
+        $query = "UPDATE hasil_panen SET verif_id_opsi = :verif_id_opsi WHERE id_panen = :id_panen";
         $this->db->query($query);
+        $this->db->bind('verif_id_opsi', 2);
         $this->db->bind('id_panen', $id_panen);
 
         $this->db->execute();

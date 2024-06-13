@@ -20,8 +20,8 @@ class Controller {
 
     public function checkRole($roles) {
         if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $roles)) {
-            Flasher::setFlash('Akses Ditolak!', 'Anda tidak memiliki izin mengakses halaman ini.', 'danger');
             header('Location: ' . BASEURL . '/auth/logout');
+            Flasher::setFlash('Akses Ditolak!', 'Anda tidak memiliki izin mengakses halaman ini.', 'danger');
             exit();
         }
     }

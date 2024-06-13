@@ -37,14 +37,14 @@
                             <?= $panen['nama_gudang']; ?>
                         </td>
                         <td>
-                            <a href="<?= BASEURL; ?>/verifikasi/setujui/<?= $panen['id_panen']; ?>"
-                                class="btn btn-danger btn-sm btntabelse7" data-id="<?= $panen['id_panen']; ?>">
-                                Setujui
-                            </a>
-                            <a href="<?= BASEURL; ?>/verifikasi/tolak/<?= $panen['id_panen']; ?>"
-                                class="btn btn-danger btn-sm btntabelX" data-id="<?= $panen['id_panen']; ?>">
-                                Tolak
-                            </a>
+                            <form action="<?= BASEURL; ?>/verifikasi/setujui/" method="post">
+                                <input type="hidden" name="id_panen" value="<?= $panen['id_panen']; ?>">
+                                <button type="submit" class="btn btn-danger btn-sm btntabelse7">Setujui</button>
+                            </form>
+                            <form action="<?= BASEURL; ?>/verifikasi/tolak/" method="post">
+                                <input type="hidden" name="id_panen" value="<?= $panen['id_panen']; ?>">
+                                <button type="submit" class="btn btn-danger btn-sm btntabelX">Tolak</button>
+                            </form>
                         </td>
                     </tr>
                     <?php endforeach; ?>
