@@ -5,18 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In to PAGARI</title>
+    <link rel='icon' href='<?= BASEURL; ?>/assets/image/favicon.ico'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class='regist'>
-<div class="row">
-    <div class="col-lg-6">
-        <?php Flasher::flash(); ?>
-    </div>
-</div>
 <main class="d-flex justify-content-center align-items-center w-100 min-vh-100 bg-color text-dark font-sans">
     <div class="shadow bg-reg rounded-lg">
+        <?php Flasher::flash(); ?>
         <div class="text-center">
             <h2 class="font-weight-bold" style="font-size: 24px;">REGISTER</h2>
         </div>

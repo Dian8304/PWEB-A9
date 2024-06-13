@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Welcome to PAGARI</title>
+        <link rel='icon' href='<?= BASEURL; ?>/assets/image/favicon.ico'>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?= BASEURL; ?>/assets/css/style.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -13,7 +14,7 @@
 <body class='landp-body'>
         <div>
                 <?php if(isset($_COOKIE['firstVisit'])): ?>
-                        <p class="alert alert-info">Selamat datang kembali! <br> Kunjungan terakhirmu ke sini adalah pada: <?= date("Y-m-d H:i:s", $_COOKIE['firstVisit']); ?></p>
+                        <p class="alert alert-info">Selamat datang kembali! <br> Kunjungan pertamamu ke sini adalah pada: <?= date("Y-m-d H:i:s", $_COOKIE['firstVisit']); ?></p>
                 <?php else: ?>
                         <p class="alert alert-info">Selamat datang! Ini adalah kunjungan pertamamu.</p>
                 <?php endif; ?>

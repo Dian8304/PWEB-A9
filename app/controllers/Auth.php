@@ -29,6 +29,12 @@ class Auth extends Controller{
                 'no_telepon' => trim($_POST['no_telepon'])
             ];
 
+            if(empty($data['username']) || empty($data['password']) || empty($data['nama_admin']) || empty($data['no_telepon'])){
+                Flasher::setFlash('Seluruh data harus', 'diisi', 'danger');
+                header('Location: ' . BASEURL . '/auth/registAdmin');
+                exit(); 
+            }
+
             if ($this->model('Auth_model')->register($data)) {
                 $user = $this->model('Auth_model')->getUserByUsername($data['username']);
                 $data['users_id_user'] = $user['id_user'];
@@ -53,6 +59,12 @@ class Auth extends Controller{
                 'no_telepon' => trim($_POST['no_telepon'])
             ];
 
+            if(empty($data['username']) || empty($data['password']) || empty($data['nama_pekebun']) || empty($data['no_telepon'])){
+                Flasher::setFlash('Seluruh data harus', 'diisi', 'danger');
+                header('Location: ' . BASEURL . '/auth/registPekebun');
+                exit(); 
+            }
+
             if ($this->model('Auth_model')->register($data)) {
                 $user = $this->model('Auth_model')->getUserByUsername($data['username']);
                 $data['users_id_user'] = $user['id_user'];
@@ -76,6 +88,12 @@ class Auth extends Controller{
                 'nama_opr' => trim($_POST['nama']),
                 'no_telepon' => trim($_POST['no_telepon'])
             ];
+
+            if(empty($data['username']) || empty($data['password']) || empty($data['nama_opr']) || empty($data['no_telepon'])){
+                Flasher::setFlash('Seluruh data harus', 'diisi', 'danger');
+                header('Location: ' . BASEURL . '/auth/registOperator');
+                exit(); 
+            }
 
             if ($this->model('Auth_model')->register($data)) {
                 $user = $this->model('Auth_model')->getUserByUsername($data['username']);

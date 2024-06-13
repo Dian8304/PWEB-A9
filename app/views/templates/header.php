@@ -12,6 +12,7 @@ $role = isset( $_SESSION[ 'role' ] ) ? $_SESSION[ 'role' ] : null;
     <title>
         <?=$data[ 'judul' ]; ?>
     </title>
+    <link rel='icon' href='<?= BASEURL; ?>/assets/image/favicon.ico'>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>
     <link rel='stylesheet' href='<?= BASEURL; ?>/assets/css/style.css'>
     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
