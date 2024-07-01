@@ -42,6 +42,11 @@ $role = isset( $_SESSION[ 'role' ] ) ? $_SESSION[ 'role' ] : null;
                     <a class='nav-link text-white' href='<?= BASEURL; ?>/gudang'>Gudang Penyimpanan</a>
                 </li>
                 <?php endif;?>
+                <?php if ( $role == 1 ):?>
+                <li class='nav-item'>
+                    <a class='nav-link text-white' href='<?= BASEURL; ?>/wilayah'>Wilayah Kebun</a>
+                </li>
+                <?php endif;?>
                 <li class='nav-item'>
                     <a class='nav-link text-white' href='<?= BASEURL; ?>/auth'>Logout</a>
                 </li>

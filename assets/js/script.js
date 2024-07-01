@@ -71,4 +71,36 @@ $(function(){
             }
         })
     });
+
+    $('.tombolTambahDataWilayah').on('click', function(){
+        
+        $('#formWilayahLabel').html('Tambah Data Wilayah');
+        $('.modal-footer button[type=submit]').html('Tambah Data');
+        $('#nama_wilayah').val('');
+        $('#luas').val('');
+        $('#lokasi').val('');
+    });
+    
+    $('.tampilModalUbahWilayah').on('click', function(){
+        
+        $('#formWilayahLabel').html('Ubah Data Wilayah');
+        $('.modal-footer button[type=submit]').html('Ubah Data');
+        $('.modal-body form').attr('action', 'https://222410101002.pbw.ilkom.unej.ac.id/uas/wilayah/ubah/')
+
+        const id = $(this).data('id');
+
+        $.ajax({
+            url: 'https://222410101002.pbw.ilkom.unej.ac.id/uas/wilayah/getubah/',
+            data: {id : id},
+            method: 'post',
+            dataType: 'json',
+            success: function(data){
+                $('#id_wilayah').val(data.id_wilayah);
+                $('#nama_wilayah').val(data.nama_wilayah);
+                $('#luas').val(data.luas);
+                $('#lokasi').val(data.lokasi);
+                $('#operator_id_opr').val(data.operator_id_opr);
+            }
+        })
+    });
 });
